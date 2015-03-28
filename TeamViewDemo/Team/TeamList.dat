@@ -1,0 +1,62 @@
+[
+{
+"Name": "Tim",
+"Profession": "Minion Leader",
+"Detail": "Tim is the leader of the team of Minions. He likes bananas very much.",
+"Image": "Tim.jpg",
+"ImageURL": "",
+"Facebook": "shubham.sorte.3",
+"Twitter": "",
+"Github": "shubhsin"
+},
+{
+"Name": "Kevin",
+"Profession": "Minion Co-Leader",
+"Detail": "Kevin is the co-leader of the team of Minions. Beware of his 'Fart Gun'.",
+"Image": "Kevin.jpg",
+"ImageURL": "",
+"Facebook": "",
+"Twitter": "",
+"Github": "chipset95"
+},
+{
+"Name": "Dave",
+"Profession": "Minion 01",
+"Detail": "Dave is an intelligent minion who is kind, caring, and funny, but sometimes accident prone.",
+"Image": "Dave.jpg",
+"ImageURL": "",
+"Facebook": "avika7tz",
+"Twitter": "avikantz",
+"Github": "avikantz"
+},
+{
+"Name": "Jerry",
+"Profession": "Minion 02",
+"Detail": "Jerry is a playful and cheerful minion.",
+"Image": "Jerry.jpg",
+"ImageURL": "",
+"Facebook": "yklal",
+"Twitter": "",
+"Github": "ykl7"
+},
+{
+"Name": "Stuart",
+"Profession": "Minion 03",
+"Detail": "Stuart is playful and funny. He is skillful at video games and Guitar. He can also be the most sincere out of all the minions.",
+"Image": "Stuart.jpg",
+"ImageURL": "",
+"Facebook": "sushant.gakhar",
+"Twitter": "",
+"Github": "Sushantgakhar"
+},
+{
+"Name": "Bob",
+"Profession": "Minion 04",
+"Detail": "Bob is a mischievous minion who will do anything, even lighting a bomb, to get attention. He has a more childlike personality than others and loves to annoy people.",
+"Image": "Bob.jpg",
+"ImageURL": "",
+"Facebook": "",
+"Twitter": "",
+"Github": ""
+}
+]

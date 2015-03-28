@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *teamViewButton;
+- (IBAction)teamViewAction:(id)sender;
 
 @end
 

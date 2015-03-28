@@ -14,6 +14,16 @@
 		593B025B1AC6ADDF00322CF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 593B025A1AC6ADDF00322CF2 /* Images.xcassets */; };
 		593B025E1AC6ADDF00322CF2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593B025C1AC6ADDF00322CF2 /* LaunchScreen.xib */; };
 		593B026A1AC6ADDF00322CF2 /* TeamViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 593B02691AC6ADDF00322CF2 /* TeamViewDemoTests.m */; };
+		593B027C1AC6ADF800322CF2 /* Bob.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02741AC6ADF800322CF2 /* Bob.jpg */; };
+		593B027D1AC6ADF800322CF2 /* Dave.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02751AC6ADF800322CF2 /* Dave.jpg */; };
+		593B027E1AC6ADF800322CF2 /* Jerry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02761AC6ADF800322CF2 /* Jerry.jpg */; };
+		593B027F1AC6ADF800322CF2 /* Kevin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02771AC6ADF800322CF2 /* Kevin.jpg */; };
+		593B02801AC6ADF800322CF2 /* Stuart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02781AC6ADF800322CF2 /* Stuart.jpg */; };
+		593B02811AC6ADF800322CF2 /* TeamBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02791AC6ADF800322CF2 /* TeamBG.jpg */; };
+		593B02821AC6ADF800322CF2 /* TeamList.dat in Resources */ = {isa = PBXBuildFile; fileRef = 593B027A1AC6ADF800322CF2 /* TeamList.dat */; };
+		593B02831AC6ADF800322CF2 /* Tim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B027B1AC6ADF800322CF2 /* Tim.jpg */; };
+		599387B41AC6E19B00D3470A /* TeamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599387B31AC6E19B00D3470A /* TeamTableViewController.m */; };
+		599387B71AC6E1A800D3470A /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599387B61AC6E1A800D3470A /* TeamTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +50,18 @@
 		593B02631AC6ADDF00322CF2 /* TeamViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		593B02681AC6ADDF00322CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		593B02691AC6ADDF00322CF2 /* TeamViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamViewDemoTests.m; sourceTree = "<group>"; };
+		593B02741AC6ADF800322CF2 /* Bob.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bob.jpg; sourceTree = "<group>"; };
+		593B02751AC6ADF800322CF2 /* Dave.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dave.jpg; sourceTree = "<group>"; };
+		593B02761AC6ADF800322CF2 /* Jerry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jerry.jpg; sourceTree = "<group>"; };
+		593B02771AC6ADF800322CF2 /* Kevin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kevin.jpg; sourceTree = "<group>"; };
+		593B02781AC6ADF800322CF2 /* Stuart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Stuart.jpg; sourceTree = "<group>"; };
+		593B02791AC6ADF800322CF2 /* TeamBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TeamBG.jpg; sourceTree = "<group>"; };
+		593B027A1AC6ADF800322CF2 /* TeamList.dat */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = TeamList.dat; sourceTree = "<group>"; };
+		593B027B1AC6ADF800322CF2 /* Tim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tim.jpg; sourceTree = "<group>"; };
+		599387B21AC6E19B00D3470A /* TeamTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewController.h; sourceTree = "<group>"; };
+		599387B31AC6E19B00D3470A /* TeamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewController.m; sourceTree = "<group>"; };
+		599387B51AC6E1A800D3470A /* TeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
+		599387B61AC6E1A800D3470A /* TeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +110,7 @@
 				593B02571AC6ADDF00322CF2 /* Main.storyboard */,
 				593B025A1AC6ADDF00322CF2 /* Images.xcassets */,
 				593B025C1AC6ADDF00322CF2 /* LaunchScreen.xib */,
+				593B02731AC6ADF800322CF2 /* Team */,
 				593B024D1AC6ADDF00322CF2 /* Supporting Files */,
 			);
 			path = TeamViewDemo;
@@ -117,6 +140,33 @@
 				593B02681AC6ADDF00322CF2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		593B02731AC6ADF800322CF2 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				599387B21AC6E19B00D3470A /* TeamTableViewController.h */,
+				599387B31AC6E19B00D3470A /* TeamTableViewController.m */,
+				599387B51AC6E1A800D3470A /* TeamTableViewCell.h */,
+				599387B61AC6E1A800D3470A /* TeamTableViewCell.m */,
+				593B027A1AC6ADF800322CF2 /* TeamList.dat */,
+				593B02841AC6AE3000322CF2 /* Images */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		593B02841AC6AE3000322CF2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				593B02741AC6ADF800322CF2 /* Bob.jpg */,
+				593B02751AC6ADF800322CF2 /* Dave.jpg */,
+				593B02761AC6ADF800322CF2 /* Jerry.jpg */,
+				593B02771AC6ADF800322CF2 /* Kevin.jpg */,
+				593B02781AC6ADF800322CF2 /* Stuart.jpg */,
+				593B027B1AC6ADF800322CF2 /* Tim.jpg */,
+				593B02791AC6ADF800322CF2 /* TeamBG.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +249,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593B02831AC6ADF800322CF2 /* Tim.jpg in Resources */,
+				593B027F1AC6ADF800322CF2 /* Kevin.jpg in Resources */,
+				593B02811AC6ADF800322CF2 /* TeamBG.jpg in Resources */,
 				593B02591AC6ADDF00322CF2 /* Main.storyboard in Resources */,
+				593B027C1AC6ADF800322CF2 /* Bob.jpg in Resources */,
+				593B027D1AC6ADF800322CF2 /* Dave.jpg in Resources */,
+				593B02801AC6ADF800322CF2 /* Stuart.jpg in Resources */,
 				593B025E1AC6ADDF00322CF2 /* LaunchScreen.xib in Resources */,
+				593B027E1AC6ADF800322CF2 /* Jerry.jpg in Resources */,
+				593B02821AC6ADF800322CF2 /* TeamList.dat in Resources */,
 				593B025B1AC6ADDF00322CF2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599387B71AC6E1A800D3470A /* TeamTableViewCell.m in Sources */,
 				593B02561AC6ADDF00322CF2 /* ViewController.m in Sources */,
 				593B02531AC6ADDF00322CF2 /* AppDelegate.m in Sources */,
+				599387B41AC6E19B00D3470A /* TeamTableViewController.m in Sources */,
 				593B02501AC6ADDF00322CF2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +474,7 @@
 				593B026F1AC6ADDF00322CF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		593B02701AC6ADDF00322CF2 /* Build configuration list for PBXNativeTarget "TeamViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +483,7 @@
 				593B02721AC6ADDF00322CF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
