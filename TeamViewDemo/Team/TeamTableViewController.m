@@ -22,6 +22,8 @@
 	UIButton *facebookButton;
 	UIButton *twitterButton;
 	UIButton *githubButton;
+	
+	UIVisualEffectView *visualEffectView;
 }
 
 - (void)viewDidLoad {
@@ -37,16 +39,50 @@
 	self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
 	self.tableView.backgroundView.clipsToBounds = YES;
 	
+	// load data from the included file (Also could be an file on the web)
 	_teamData = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TeamList" ofType:@"dat"]]] options:kNilOptions error:nil];
 	
+	// add vibrancy to the tableView's separator
 	UIBlurEffect *blurEffect;
 	blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
 	UIVibrancyEffect *vibrancyEffect;
 	vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
 	self.tableView.separatorEffect = vibrancyEffect;
 	
+	// refresh the position of the gorram visual effect view
 	[[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidChangeStatusBarOrientationNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
 		[self.tableView reloadData];
+		[visualEffectView removeFromSuperview];
+		[self viewWillAppear:YES];
+	}];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+	// add the visual effect view
+	UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+	UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+	visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+	visualEffectView.frame = CGRectMake(0, SHeight - 44, SWidth, 50);
+	UIVisualEffectView *vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+	vibrancyView.frame = CGRectMake(0, 0, SWidth, 50);
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SWidth, 50)];
+	label.text = @"Thank You!";
+	label.textAlignment = NSTextAlignmentCenter;
+	label.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:32.0f];
+	[vibrancyView.contentView addSubview:label];
+	[visualEffectView.contentView addSubview:vibrancyView];
+	visualEffectView.layer.transform = CATransform3DMakeTranslation(0, 50, 0);
+	[self.navigationController.view addSubview:visualEffectView];
+	[UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+		visualEffectView.layer.transform = CATransform3DIdentity;;
+	} completion:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+	[UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+		visualEffectView.layer.transform = CATransform3DMakeTranslation(0, 50, 0);
+	} completion:^(BOOL finished) {
+		[visualEffectView removeFromSuperview];
 	}];
 }
 
@@ -107,8 +143,8 @@
     return cell;
 }
 
+// animations and shit
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-	// Animations
 	UILabel *detailLabel = (UILabel *)[cell.contentView viewWithTag:9];
 	detailLabel.alpha = 0.0;
 	detailLabel.layer.transform = CATransform3DMakeScale(0.96, 0.96, 0.96);
@@ -134,6 +170,7 @@
 	} completion:nil];
 }
 
+// set the selectedIndexPath property to the indexPath of the selected row if the row is not already selected
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView beginUpdates];
 	if (![indexPath compare:_selectedIndexPath] == NSOrderedSame)
@@ -144,6 +181,7 @@
 	[tableView endUpdates];
 }
 
+// reload data once the cell is unhilighted cause different cell is loaded for the selected index
 -(void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (!self.tableView.isDragging) {
 		[tableView beginUpdates];
@@ -152,12 +190,14 @@
 	}
 }
 
+// return large height if the index is selected
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if ([indexPath compare:_selectedIndexPath] == NSOrderedSame)
 		return 160.f;
 	return 80.f;
 }
 
+// Add a blank header of 44.f thickness - a workaround to provide a custom offset to the tableview
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWidth, 44.f)];
 	return header;
@@ -167,21 +207,9 @@
 	return 44.f;
 }
 
+// Add a blank footer view of 96.f thickness to provide empty space at the bottom of the tableview to add the visualeffect view
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
 	UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SWidth, 96)];
-	UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-	UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-	UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-	visualEffectView.frame = CGRectMake(0, 46, SWidth, 50);
-	UIVisualEffectView *vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-	vibrancyView.frame = CGRectMake(0, 0, SWidth, 50);
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SWidth, 50)];
-	label.text = @"Thank You!";
-	label.textAlignment = NSTextAlignmentCenter;
-	label.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:32.0f];
-	[vibrancyView.contentView addSubview:label];
-	[visualEffectView.contentView addSubview:vibrancyView];
-	[footer addSubview:visualEffectView];
 	return footer;
 }
 
@@ -191,6 +219,7 @@
 
 #pragma mark - Social sharing methods
 
+// Get the point of origin of the sender and convert the point to relative location in tableview to get the indexPath at the selected point. Use that indexPath to get the data strings and perform action accordingly.
 -(void)facebookAction:(id)sender {
 	CGPoint pointOfOrigin = [sender convertPoint:CGPointZero toView:self.tableView];
 	NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pointOfOrigin];
