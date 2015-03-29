@@ -8,6 +8,7 @@
 
 #import "TeamTableViewController.h"
 #import "TeamTableViewCell.h"
+#import "Reachability.h"
 
 #define TextColor [UIColor whiteColor]
 
@@ -130,7 +131,39 @@
 	NSDictionary *person = [_teamData objectAtIndex:indexPath.row];
 	cell.personNameLabel.text = [person objectForKey:@"Name"];
 	cell.personProfessionLabel.text = [person objectForKey:@"Profession"];
-	cell.personImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", [person objectForKey:@"Image"]]];
+	
+	// set a placeholder image if required
+	// cell.personImageView.image = [UIImage imageNamed:@"defaultPerson"];
+	
+	// If image data found in the documents folder then load image from there else async load images...
+	if ([NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]]])
+		cell.personImageView.image = [UIImage imageWithContentsOfFile:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]];
+	
+	else {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			// download image on global queue
+			NSData *dataOfImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"ImageURL"]]]];
+			
+			// save image to documents folder for further use
+			[dataOfImage writeToFile: [self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]] atomically:YES];
+			
+			UIImage * image = [UIImage imageWithData:dataOfImage];
+			
+			dispatch_async(dispatch_get_main_queue(), ^{
+				// Get the current cell on the main queue and set the image
+				TeamTableViewCell * cell = (TeamTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+				[UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+					cell.personImageView.alpha = 0.0;
+				} completion:^(BOOL finished) {
+					cell.personImageView.image = image;
+					[UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+						cell.personImageView.alpha = 1.0;
+					} completion:nil];
+				}];
+			});
+		});
+	}
+	
 	cell.personDetailLabel.text = [person objectForKey:@"Detail"];
 	
 	cell.personNameLabel.textColor = TextColor;
@@ -159,13 +192,13 @@
 		detailLabel.alpha = 1.0;
 		detailLabel.layer.transform = CATransform3DIdentity;
 	} completion:nil];
-	[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+	[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
 		fbutton.layer.transform = CATransform3DIdentity;
 	} completion:nil];
-	[UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseIn animations:^{
+	[UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseOut animations:^{
 		tbutton.layer.transform = CATransform3DIdentity;
 	} completion:nil];
-	[UIView animateWithDuration:0.5 delay:0.6 options:UIViewAnimationOptionCurveEaseIn animations:^{
+	[UIView animateWithDuration:0.5 delay:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
 		gbutton.layer.transform = CATransform3DIdentity;
 	} completion:nil];
 }
@@ -252,6 +285,14 @@
 		NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://github.com/%@", userID]];
 		[[UIApplication sharedApplication] openURL:url];
 	}
+}
+
+#pragma mark - Other methods
+// Returns the path in the app's documents folder
+- (NSString *)documentsPathForFileName:(NSString *)name {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsPath = [paths objectAtIndex:0];
+	return [documentsPath stringByAppendingPathComponent:name];
 }
 
 @end

@@ -37,20 +37,6 @@
 	self.navigationController.view.backgroundColor = [UIColor clearColor];
 	
 	self.navigationItem.title = @"Main View";
-	
-//	UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-//	UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-//	UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-//	visualEffectView.frame = CGRectMake(0, SHeight - 120, SWidth, 120);
-//	UIVisualEffectView *vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-//	vibrancyView.frame = CGRectMake(0, 0, SWidth, 120);
-//	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SWidth, 120)];
-//	label.text = @"Team View";
-//	label.textAlignment = NSTextAlignmentCenter;
-//	label.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:60.0f];
-//	[vibrancyView.contentView addSubview:label];
-//	[visualEffectView.contentView addSubview:vibrancyView];
-//	[self.view addSubview:visualEffectView];
 }
 
 - (void)didReceiveMemoryWarning {
