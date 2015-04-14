@@ -11,9 +11,9 @@
 @implementation TeamTableViewCell
 
 - (void)awakeFromNib {
-	CALayer *layer = [_personImageView layer];
-	[layer setMasksToBounds:YES];
-	[layer setCornerRadius:_personImageView.frame.size.width/2];
+//	CALayer *layer = [_personImageView layer];
+//	[layer setMasksToBounds:YES];
+//	[layer setCornerRadius:_personImageView.frame.size.width/2];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

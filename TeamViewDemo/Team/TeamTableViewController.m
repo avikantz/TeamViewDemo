@@ -74,7 +74,7 @@
 	[visualEffectView.contentView addSubview:vibrancyView];
 	visualEffectView.layer.transform = CATransform3DMakeTranslation(0, 50, 0);
 	[self.navigationController.view addSubview:visualEffectView];
-	[UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+	[UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
 		visualEffectView.layer.transform = CATransform3DIdentity;;
 	} completion:nil];
 }
@@ -136,18 +136,17 @@
 	// cell.personImageView.image = [UIImage imageNamed:@"defaultPerson"];
 	
 	// If image data found in the documents folder then load image from there else async load images...
-	if ([NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]]])
-		cell.personImageView.image = [UIImage imageWithContentsOfFile:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]];
-	
+	if ([NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]]])
+		cell.personImageView.image = [UIImage imageWithContentsOfFile:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]];
 	else {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			// download image on global queue
 			NSData *dataOfImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"ImageURL"]]]];
 			
-			// save image to documents folder for further use
-			[dataOfImage writeToFile: [self documentsPathForFileName:[NSString stringWithFormat:@"%@.jpg", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]] atomically:YES];
-			
 			UIImage * image = [UIImage imageWithData:dataOfImage];
+	
+			// save image to documents folder for further use
+			[UIImagePNGRepresentation(image) writeToFile: [self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]] atomically:YES];
 			
 			dispatch_async(dispatch_get_main_queue(), ^{
 				// Get the current cell on the main queue and set the image
@@ -227,6 +226,8 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if ([indexPath compare:_selectedIndexPath] == NSOrderedSame)
 		return 160.f;
+	if (indexPath.row == 0 || indexPath.row == 1)
+		return 100.f;
 	return 80.f;
 }
 
