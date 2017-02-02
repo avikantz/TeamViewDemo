@@ -9,6 +9,7 @@
 #import "TeamTableViewController.h"
 #import "TeamTableViewCell.h"
 #import "Reachability.h"
+#import "UIImage+ImageUtilities.h"
 
 #define TextColor [UIColor whiteColor]
 
@@ -137,13 +138,13 @@
 	
 	// If image data found in the documents folder then load image from there else async load images...
 	if ([NSData dataWithContentsOfURL:[NSURL fileURLWithPath:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]]])
-		cell.personImageView.image = [UIImage imageWithContentsOfFile:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]];
+		cell.personImageView.image = [[UIImage imageWithContentsOfFile:[self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]]] circleImageWithSize:300];
 	else {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			// download image on global queue
 			NSData *dataOfImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"ImageURL"]]]];
 			
-			UIImage * image = [UIImage imageWithData:dataOfImage];
+			UIImage * image = [[UIImage imageWithData:dataOfImage] circleImageWithSize:300];
 	
 			// save image to documents folder for further use
 			[UIImagePNGRepresentation(image) writeToFile: [self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", [[_teamData objectAtIndex:indexPath.row] objectForKey:@"Name"]]] atomically:YES];
@@ -154,7 +155,7 @@
 				[UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
 					cell.personImageView.alpha = 0.0;
 				} completion:^(BOOL finished) {
-					cell.personImageView.image = image;
+					cell.personImageView.image = [image circleImageWithSize:300];
 					[UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
 						cell.personImageView.alpha = 1.0;
 					} completion:nil];
@@ -175,7 +176,7 @@
     return cell;
 }
 
-// animations and shit
+// Animations...
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	UILabel *detailLabel = (UILabel *)[cell.contentView viewWithTag:9];
 	detailLabel.alpha = 0.0;
@@ -205,7 +206,7 @@
 // set the selectedIndexPath property to the indexPath of the selected row if the row is not already selected
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView beginUpdates];
-	if (![indexPath compare:_selectedIndexPath] == NSOrderedSame)
+	if (!([indexPath compare:_selectedIndexPath] == NSOrderedSame))
 		_selectedIndexPath = indexPath;
 	else
 		_selectedIndexPath = nil;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>62529E03-E99F-4A85-BF50-017413FB0A43</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TeamViewDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>447DE25674DC3CAB5CF73F8BCF1B0C6E304EBAD6</key>
+		<string>https://github.com/avikantz/TeamViewDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TeamViewDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>447DE25674DC3CAB5CF73F8BCF1B0C6E304EBAD6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/avikantz/TeamViewDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>447DE25674DC3CAB5CF73F8BCF1B0C6E304EBAD6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>447DE25674DC3CAB5CF73F8BCF1B0C6E304EBAD6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TeamViewDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

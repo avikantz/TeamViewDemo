@@ -16,6 +16,7 @@
 		593B026A1AC6ADDF00322CF2 /* TeamViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 593B02691AC6ADDF00322CF2 /* TeamViewDemoTests.m */; };
 		593B02811AC6ADF800322CF2 /* TeamBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 593B02791AC6ADF800322CF2 /* TeamBG.jpg */; };
 		593B02821AC6ADF800322CF2 /* TeamList.dat in Resources */ = {isa = PBXBuildFile; fileRef = 593B027A1AC6ADF800322CF2 /* TeamList.dat */; };
+		593D8BBA1E4366350074B636 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 593D8BB91E4366350074B636 /* UIImage+ImageUtilities.m */; };
 		599387B41AC6E19B00D3470A /* TeamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 599387B31AC6E19B00D3470A /* TeamTableViewController.m */; };
 		599387B71AC6E1A800D3470A /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599387B61AC6E1A800D3470A /* TeamTableViewCell.m */; };
 		59DF708B1AC7FAD400F70518 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DF708A1AC7FAD400F70518 /* Reachability.m */; };
@@ -47,6 +48,8 @@
 		593B02691AC6ADDF00322CF2 /* TeamViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamViewDemoTests.m; sourceTree = "<group>"; };
 		593B02791AC6ADF800322CF2 /* TeamBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TeamBG.jpg; sourceTree = "<group>"; };
 		593B027A1AC6ADF800322CF2 /* TeamList.dat */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = TeamList.dat; sourceTree = "<group>"; };
+		593D8BB81E4366350074B636 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		593D8BB91E4366350074B636 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		599387B21AC6E19B00D3470A /* TeamTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewController.h; sourceTree = "<group>"; };
 		599387B31AC6E19B00D3470A /* TeamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewController.m; sourceTree = "<group>"; };
 		599387B51AC6E1A800D3470A /* TeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				593B02521AC6ADDF00322CF2 /* AppDelegate.m */,
 				593B02541AC6ADDF00322CF2 /* ViewController.h */,
 				593B02551AC6ADDF00322CF2 /* ViewController.m */,
+				593D8BB81E4366350074B636 /* UIImage+ImageUtilities.h */,
+				593D8BB91E4366350074B636 /* UIImage+ImageUtilities.m */,
 				593B02571AC6ADDF00322CF2 /* Main.storyboard */,
 				593B025A1AC6ADDF00322CF2 /* Images.xcassets */,
 				593B025C1AC6ADDF00322CF2 /* LaunchScreen.xib */,
@@ -269,6 +274,7 @@
 				599387B71AC6E1A800D3470A /* TeamTableViewCell.m in Sources */,
 				593B02561AC6ADDF00322CF2 /* ViewController.m in Sources */,
 				593B02531AC6ADDF00322CF2 /* AppDelegate.m in Sources */,
+				593D8BBA1E4366350074B636 /* UIImage+ImageUtilities.m in Sources */,
 				599387B41AC6E19B00D3470A /* TeamTableViewController.m in Sources */,
 				59DF708B1AC7FAD400F70518 /* Reachability.m in Sources */,
 				593B02501AC6ADDF00322CF2 /* main.m in Sources */,
